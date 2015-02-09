@@ -7,6 +7,8 @@
 //
 
 #import "DXAppDelegate.h"
+#import "DetailViewController.h"
+#import "DXViewController.h"
 
 @implementation DXAppDelegate
 
@@ -15,6 +17,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DetailViewController new]];
+    
+    
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DXViewController new]];
+//    
+//    
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
