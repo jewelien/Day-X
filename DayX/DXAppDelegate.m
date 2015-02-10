@@ -9,6 +9,7 @@
 #import "DXAppDelegate.h"
 #import "DetailViewController.h"
 #import "DXViewController.h"
+#import "ListViewController.h"
 
 @implementation DXAppDelegate
 
@@ -21,9 +22,11 @@
     
 //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DetailViewController new]];
 //    
+//    
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DXViewController new]];
+//
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DXViewController new]];
-    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ListViewController new]];
     
     
     

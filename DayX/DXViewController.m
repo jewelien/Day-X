@@ -11,11 +11,13 @@
 static NSString *subjectKey = @"subject"; //title textField
 static NSString *entryKey = @"entry";  //text textView
 static NSString *journalKey = @"journal";  // entry textField and textView Dictionary in save method
+static NSString *dateKey = @"dateKey";
 
 @interface DXViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 @property(nonatomic, strong) UITextField *textField;
 @property(nonatomic, strong) UITextView *textView;
+@property(nonatomic,strong) UILabel *dateProp;
 
 @end
 
@@ -28,24 +30,33 @@ static NSString *journalKey = @"journal";  // entry textField and textView Dicti
     self.title = @"Day X";
     self.view.backgroundColor = [UIColor grayColor];
     
-    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 80, 200, 30)];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 110, 200, 30)];
     self.textField.placeholder = @"Subject";
     self.textField.borderStyle = UITextBorderStyleRoundedRect;
     self.textField.delegate = self;
     [self.view addSubview:self.textField];
     
     
-    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(30, 130, self.view.frame.size.width - 60, self.view.frame.size.height - 300)];
+    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(30, 175, self.view.frame.size.width - 60, self.view.frame.size.height - 300)];
     self.textView.backgroundColor = [UIColor blackColor];
     self.textView.delegate = self;
     self.textView.textColor = [UIColor whiteColor];
     [self.view addSubview:self.textView];
     
-    UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(230,  80, 50, 30)];
+    UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(230, 110, 50, 30)];
     clearButton.backgroundColor = [UIColor grayColor];
     [clearButton setTitle:@"clear" forState:UIControlStateNormal];
     [clearButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:clearButton];
+    
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 250, 30)];
+    dateLabel.backgroundColor = [UIColor whiteColor];
+    NSDate *today = [NSDate date];
+    dateLabel.text = [NSString stringWithFormat:@"%@", today];
+    self.dateProp = dateLabel;
+    [self.view addSubview:dateLabel];
+
+    
     
     NSDictionary *journal = [[NSUserDefaults standardUserDefaults] objectForKey:journalKey];
     [self updateWithDictionary:journal];
@@ -62,8 +73,7 @@ static NSString *journalKey = @"journal";  // entry textField and textView Dicti
 - (void) updateWithDictionary:(NSDictionary *)dictionary {
     self.textField.text = dictionary [subjectKey];
     self.textView.text = dictionary [entryKey];
-    
-    
+    self.dateProp.text = dictionary [dateKey];
     
 }
 
@@ -72,7 +82,7 @@ static NSString *journalKey = @"journal";  // entry textField and textView Dicti
     NSMutableDictionary *journalDictionary = [NSMutableDictionary new];
     journalDictionary[subjectKey] = self.textField.text;
     journalDictionary[entryKey] = self.textView.text;
-    
+    journalDictionary[dateKey] = self.dateProp.text;
     
     [[NSUserDefaults standardUserDefaults] setObject:journalDictionary forKey:journalKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
