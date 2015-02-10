@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcC-jx-FHB">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcC-jx-FHB">
                     <rect key="frame" x="229" y="148" width="97" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -87,14 +87,14 @@
                     <exclude reference="yAf-V4-duU"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="5ow-5e-Of0"/>
-                    <exclude reference="BBg-37-W7A"/>
+                    <exclude reference="5l6-Uz-Afg"/>
+                    <exclude reference="yW7-3J-0RD"/>
                     <exclude reference="Gk4-LY-Zh2"/>
                     <exclude reference="Lv1-Gz-QdB"/>
                     <exclude reference="h4s-wu-Alk"/>
                     <exclude reference="o4d-b4-gIC"/>
-                    <exclude reference="5l6-Uz-Afg"/>
-                    <exclude reference="yW7-3J-0RD"/>
+                    <exclude reference="5ow-5e-Of0"/>
+                    <exclude reference="BBg-37-W7A"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -103,14 +103,14 @@
                     <include reference="yAf-V4-duU"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="5ow-5e-Of0"/>
-                    <include reference="BBg-37-W7A"/>
+                    <include reference="5l6-Uz-Afg"/>
+                    <include reference="yW7-3J-0RD"/>
                     <include reference="Gk4-LY-Zh2"/>
                     <include reference="Lv1-Gz-QdB"/>
                     <include reference="h4s-wu-Alk"/>
                     <include reference="o4d-b4-gIC"/>
-                    <include reference="5l6-Uz-Afg"/>
-                    <include reference="yW7-3J-0RD"/>
+                    <include reference="5ow-5e-Of0"/>
+                    <include reference="BBg-37-W7A"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="56" y="311"/>

@@ -33,6 +33,7 @@
 
 - (IBAction)buttonPressed:(id)sender {
     self.textField.text = @"";
+    self.textView.text = @"";
     
 }
 

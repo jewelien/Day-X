@@ -8,6 +8,10 @@
 
 #import "DXViewController.h"
 
+static NSString *subjectKey = @"subject"; //title textField
+static NSString *entryKey = @"entry";  //text textView
+static NSString *journalKey = @"journal";  // entry textField and textView Dictionary in save method
+
 @interface DXViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 @property(nonatomic, strong) UITextField *textField;
@@ -31,10 +35,10 @@
     [self.view addSubview:self.textField];
     
     
-    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(30, 130, self.view.frame.size.width - 60, self.view.frame.size.height - 200)];
-    self.textView.backgroundColor = [UIColor lightGrayColor];
+    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(30, 130, self.view.frame.size.width - 60, self.view.frame.size.height - 300)];
+    self.textView.backgroundColor = [UIColor blackColor];
     self.textView.delegate = self;
-    
+    self.textView.textColor = [UIColor whiteColor];
     [self.view addSubview:self.textView];
     
     UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(230,  80, 50, 30)];
@@ -43,11 +47,48 @@
     [clearButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:clearButton];
     
+    NSDictionary *journal = [[NSUserDefaults standardUserDefaults] objectForKey:journalKey];
+    [self updateWithDictionary:journal];
+    
+    
 }
 
 - (void)buttonPressed{
     self.textField.text = @"";
+    self.textView.text = @"";
 }
+
+
+- (void) updateWithDictionary:(NSDictionary *)dictionary {
+    self.textField.text = dictionary [subjectKey];
+    self.textView.text = dictionary [entryKey];
+    
+    
+    
+}
+
+- (void)save {
+    
+    NSMutableDictionary *journalDictionary = [NSMutableDictionary new];
+    journalDictionary[subjectKey] = self.textField.text;
+    journalDictionary[entryKey] = self.textView.text;
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:journalDictionary forKey:journalKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField {
+    [self save];
+}
+
+
+-(void)textViewDidChange:(UITextView *)textView {
+    [self save];
+}
+
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];

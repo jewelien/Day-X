@@ -19,12 +19,12 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DetailViewController new]];
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DetailViewController new]];
+//    
+    
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DXViewController new]];
     
     
-//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[DXViewController new]];
-//    
-//    
     
     
     [self.window makeKeyAndVisible];
