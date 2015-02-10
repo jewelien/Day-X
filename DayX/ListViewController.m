@@ -8,6 +8,7 @@
 
 #import "ListViewController.h"
 #import "ListTableVIewDataSource.h"
+#import "DXViewController.h"
 
 
 @interface ListViewController ()
@@ -25,13 +26,27 @@
     
     self.tableView = [UITableView new];
     [self.view addSubview:self.tableView];
-    
+
     self.dataSource = [ListTableVIewDataSource new];
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
     
     
+    
+    UIBarButtonItem *newEntryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewEntry:)];
+    self.navigationItem.rightBarButtonItem = newEntryButton;
+    
+    
 }
+
+
+-(void)addNewEntry:(id)sender {
+    
+    DXViewController *newPage = [DXViewController new];
+    [self.navigationController pushViewController:newPage animated:YES];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
