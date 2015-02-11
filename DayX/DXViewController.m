@@ -7,6 +7,7 @@
 //
 
 #import "DXViewController.h"
+#import "Entry.h"
 
 static NSString *subjectKey = @"subject"; //title textField
 static NSString *entryKey = @"entry";  //text textView
@@ -18,6 +19,7 @@ static NSString *dateKey = @"dateKey";
 @property(nonatomic, strong) UITextField *textField;
 @property(nonatomic, strong) UITextView *textView;
 @property(nonatomic,strong) UILabel *dateProp;
+@property(nonatomic, strong) Entry *entryProperty;
 
 @end
 
@@ -56,10 +58,14 @@ static NSString *dateKey = @"dateKey";
     self.dateProp = dateLabel;
     [self.view addSubview:dateLabel];
 
-    
+    UIBarButtonItem *newEntryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save)];
+    self.navigationItem.rightBarButtonItem = newEntryButton;
+
     
     NSDictionary *journal = [[NSUserDefaults standardUserDefaults] objectForKey:journalKey];
     [self updateWithDictionary:journal];
+    
+    
     
     
 }
@@ -79,23 +85,38 @@ static NSString *dateKey = @"dateKey";
 
 - (void)save {
     
-    NSMutableDictionary *journalDictionary = [NSMutableDictionary new];
-    journalDictionary[subjectKey] = self.textField.text;
-    journalDictionary[entryKey] = self.textView.text;
-    journalDictionary[dateKey] = self.dateProp.text;
+//    NSMutableDictionary *journalDictionary = [NSMutableDictionary new];
     
-    [[NSUserDefaults standardUserDefaults] setObject:journalDictionary forKey:journalKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (!self.entryProperty) {
+        self.entryProperty = [[Entry alloc]init];
+        
+        self.entryProperty.title = self.textField.text;
+        self.entryProperty.text = self.textView.text;
+        
+//        journalDictionary[dateKey] = self.dateProp.text;
+        
+    }
     
+    NSMutableArray *loadedEntries = [Entry loadEntriesFromDefaults];
+    [loadedEntries addObject:self.entryProperty];
+    
+    [Entry storeEntriesInDefaults:loadedEntries];
+
+    DXViewController *viewController = [DXViewController new];
+    [self.navigationController popToViewController:viewController animated:YES];
+    
+//    [[NSUserDefaults standardUserDefaults] setObject:journalDictionary forKey:journalKey];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//    
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField {
-    [self save];
+//    [self save];
 }
 
 
 -(void)textViewDidChange:(UITextView *)textView {
-    [self save];
+//    [self save];
 }
 
 

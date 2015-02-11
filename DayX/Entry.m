@@ -67,7 +67,7 @@ static NSString * const entryListKey = @"entryListKey";
 + (void) storeEntriesInDefaults:(NSArray *)entries {
     NSMutableArray *entryDictionaries= [NSMutableArray new];
     for (Entry *eachEntry in entries) {
-        [entryDictionaries addObject:eachEntry];
+        [entryDictionaries addObject:[eachEntry entryDictionary]];
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:entryDictionaries forKey:entryListKey];

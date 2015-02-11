@@ -11,7 +11,7 @@
 #import "DXViewController.h"
 
 
-@interface ListViewController ()
+@interface ListViewController () <UITableViewDelegate>
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) ListTableVIewDataSource *dataSource;
@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view.
     
     self.tableView = [UITableView new];
+    self.tableView.frame = self.view.frame;
     [self.view addSubview:self.tableView];
 
     self.dataSource = [ListTableVIewDataSource new];
@@ -33,14 +34,20 @@
     
     
     
-    UIBarButtonItem *newEntryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewEntry:)];
+    UIBarButtonItem *newEntryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewEntry)];
     self.navigationItem.rightBarButtonItem = newEntryButton;
     
     
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
--(void)addNewEntry:(id)sender {
+
+
+-(void)addNewEntry {
     
     DXViewController *newPage = [DXViewController new];
     [self.navigationController pushViewController:newPage animated:YES];
