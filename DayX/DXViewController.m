@@ -8,6 +8,7 @@
 
 #import "DXViewController.h"
 #import "Entry.h"
+#import "ListViewController.h"
 
 static NSString *subjectKey = @"subject"; //title textField
 static NSString *entryKey = @"entry";  //text textView
@@ -51,15 +52,15 @@ static NSString *dateKey = @"dateKey";
     [clearButton addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:clearButton];
     
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 250, 30)];
-    dateLabel.backgroundColor = [UIColor whiteColor];
-    NSDate *today = [NSDate date];
-    dateLabel.text = [NSString stringWithFormat:@"%@", today];
-    self.dateProp = dateLabel;
-    [self.view addSubview:dateLabel];
+//    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 250, 30)];
+//    dateLabel.backgroundColor = [UIColor whiteColor];
+//    NSDate *today = [NSDate date];
+//    dateLabel.text = [NSString stringWithFormat:@"%@", today];
+//    self.dateProp = dateLabel;
+//    [self.view addSubview:dateLabel];
 
-    UIBarButtonItem *newEntryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save)];
-    self.navigationItem.rightBarButtonItem = newEntryButton;
+    UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save)];
+    self.navigationItem.rightBarButtonItem = saveButton;
 
     
     NSDictionary *journal = [[NSUserDefaults standardUserDefaults] objectForKey:journalKey];
@@ -102,21 +103,23 @@ static NSString *dateKey = @"dateKey";
     
     [Entry storeEntriesInDefaults:loadedEntries];
 
-    DXViewController *viewController = [DXViewController new];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+    ListViewController *viewController = [ListViewController new];
     [self.navigationController popToViewController:viewController animated:YES];
     
 //    [[NSUserDefaults standardUserDefaults] setObject:journalDictionary forKey:journalKey];
 //    [[NSUserDefaults standardUserDefaults] synchronize];
-//    
+    
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField {
-//    [self save];
+    [self save];
 }
 
 
 -(void)textViewDidChange:(UITextView *)textView {
-//    [self save];
+    [self save];
 }
 
 

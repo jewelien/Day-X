@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 @interface Entry : NSObject
 
 @property (nonatomic, strong) NSString *title;

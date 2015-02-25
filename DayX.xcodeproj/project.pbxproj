@@ -134,10 +134,10 @@
 				FCBDA4821A8AC29000E8D489 /* ListViewController.m */,
 				FCBDA4841A8AC2FF00E8D489 /* ListTableVIewDataSource.h */,
 				FCBDA4851A8AC2FF00E8D489 /* ListTableVIewDataSource.m */,
+				711A507B19388095005642EF /* Images.xcassets */,
 				FCC056791A89527700C9336C /* DetailViewController.h */,
 				FCC0567A1A89527700C9336C /* DetailViewController.m */,
 				FCC0567B1A89527700C9336C /* DetailViewController.xib */,
-				711A507B19388095005642EF /* Images.xcassets */,
 				711A507019388095005642EF /* Supporting Files */,
 			);
 			path = DayX;

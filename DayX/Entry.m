@@ -11,7 +11,6 @@
 static NSString * const titleKey = @"titleKey";
 static NSString * const textKey = @"textKey";
 static NSString * const timeStampKey = @"timeStampKey";
-
 static NSString * const entryListKey = @"entryListKey";
 
 
@@ -71,7 +70,7 @@ static NSString * const entryListKey = @"entryListKey";
     }
     
     [[NSUserDefaults standardUserDefaults] setObject:entryDictionaries forKey:entryListKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
 

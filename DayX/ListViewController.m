@@ -20,17 +20,22 @@
 
 @implementation ListViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.tableView = [UITableView new];
     self.tableView.frame = self.view.frame;
-    [self.view addSubview:self.tableView];
-
     self.dataSource = [ListTableVIewDataSource new];
     self.tableView.dataSource = self.dataSource;
     [self.dataSource registerTableView:self.tableView];
+    [self.view addSubview:self.tableView];
     
     
     
