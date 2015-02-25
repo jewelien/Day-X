@@ -52,14 +52,17 @@
     self.textView.text = @"";
 }
 
+//use only one or the other. programatically or xib/storyboards..this is not setup correctly but it was set up this way..
 - (IBAction)save:(id)sender {
 
-    Entry *entry = [[Entry alloc] initWithDictionary:@{titleKey: self.textField.text, textKey: self.textView.text}];
+    self.entry.title = self.textField.text;
+    self.entry.text = self.textView.text;
+    self.entry.timestamp = [NSDate date];
     
     if (self.entry) {
-        [[EntryController sharedInstance] replaceEntry:self.entry withEntry:entry];
+        [[EntryController sharedInstance] synchronize];
     } else {
-        [[EntryController sharedInstance] addEntry:entry];
+        [[EntryController sharedInstance] addEntryWithTitle:self.textField.text text:self.textView.text addDate:[NSDate date]];
     }
     
     [self.navigationController popViewControllerAnimated:YES];
