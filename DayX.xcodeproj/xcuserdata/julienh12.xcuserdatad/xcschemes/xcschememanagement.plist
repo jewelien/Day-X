@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DayXKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>711A508019388096005642EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC65ED5B1AAA1B3B004A1F63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC65ED651AAA1B3B004A1F63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
