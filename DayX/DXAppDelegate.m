@@ -8,11 +8,29 @@
 
 #import "DXAppDelegate.h"
 #import "DXListViewController.h"
+#import "EntryController.h"
+
+#import <Dropbox/Dropbox.h>
 
 @implementation DXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//#warning may need to update appKey here and in URL Types
+
+    DBAccountManager *accountManager = [[DBAccountManager alloc] initWithAppKey:@"7wrom79axtea1de"
+                                                                         secret:@"8omrn9lll3gpzlx"];
+    [DBAccountManager setSharedManager:accountManager];
+    
+    DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
+    if (account) {
+        [DBDatastoreManager setSharedManager:[DBDatastoreManager managerForAccount:account]];
+    } else {
+        [DBDatastoreManager setSharedManager:[DBDatastoreManager localManagerForAccountManager:[DBAccountManager sharedManager]]];
+    }
+     
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
@@ -21,6 +39,26 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account) {
+        NSLog(@"App/Account linked successfully");
+        
+        //migrate any local datastores to the linked account
+        DBDatastoreManager *localManager = [DBDatastoreManager localManagerForAccountManager:[DBAccountManager sharedManager]];
+        
+        [[EntryController sharedInstance].datastore close]; //CLOSE DATASTORE
+        
+        [localManager migrateToAccount:account error:nil];
+        
+        //now we need to use the dropbox datastore not local
+        [DBDatastoreManager setSharedManager:[DBDatastoreManager managerForAccount:account]];
+        
+        [EntryController updateSharedInstance];
+    }
     return YES;
 }
 

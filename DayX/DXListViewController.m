@@ -12,6 +12,8 @@
 
 #import "EntryController.h"
 
+#import <Dropbox/Dropbox.h>
+
 @interface DXListViewController () <UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,14 +43,22 @@
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     [self.dataSource registerTableView:self.tableView];
+    
+    //dropbox image : http://imgur.com/a/hX7Q2
+    UIBarButtonItem *dropboxButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"dropboxImage"] style:UIBarButtonItemStyleDone target:self action:@selector(linkDropboxAccount)];
+    self.navigationItem.leftBarButtonItem = dropboxButton;
+    
 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+//    DXDetailViewController *detailViewController = [DXDetailViewController new];
+//    [detailViewController updateWithEntry:[EntryController sharedInstance].entries[indexPath.row]];
+    
     DXDetailViewController *detailViewController = [DXDetailViewController new];
-    [detailViewController updateWithEntry:[EntryController sharedInstance].entries[indexPath.row]];
+    [detailViewController updateWithEntryDBRecord:[EntryController sharedInstance].entries[indexPath.row]];
     [self.navigationController pushViewController:detailViewController animated:YES];
 
 }
@@ -58,6 +68,15 @@
     DXDetailViewController *detailViewController = [DXDetailViewController new];
     [self.navigationController pushViewController:detailViewController animated:YES];
     
+}
+
+- (void)linkDropboxAccount {
+    DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
+    if (account) {
+        NSLog(@"Account already linked");
+    } else {
+        [[DBAccountManager sharedManager] linkFromController:self];
+    }
 }
 
 @end

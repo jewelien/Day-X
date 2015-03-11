@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Dropbox/Dropbox.h>
 
 @class Entry;
 
@@ -14,6 +15,7 @@ static NSString * const EntryKey = @"entry";
 
 @interface DXDetailViewController : UIViewController
 
-- (void)updateWithEntry:(Entry *)entry;
+//- (void)updateWithEntry:(Entry *)entry;
+- (void)updateWithEntryDBRecord:(DBRecord *)record;
 
 @end

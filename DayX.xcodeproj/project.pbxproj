@@ -19,14 +19,18 @@
 		711A508519388096005642EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711A506D19388095005642EF /* UIKit.framework */; };
 		711A508D19388096005642EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711A508B19388096005642EF /* InfoPlist.strings */; };
 		711A508F19388096005642EF /* DayXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 711A508E19388096005642EF /* DayXTests.m */; };
-		715A720319DDD1C200895248 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 715A720119DDD1C200895248 /* Model.xcdatamodeld */; };
-		715A720719DDD27700895248 /* DBStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 715A720619DDD27700895248 /* DBStack.m */; };
-		715A720A19DDD2B000895248 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 715A720919DDD2B000895248 /* Entry.m */; };
 		7160740219CADDA500D730CF /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7160740119CADDA500D730CF /* EntryController.m */; };
 		7160740519CAE03C00D730CF /* DXListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7160740419CAE03C00D730CF /* DXListViewController.m */; };
 		7160740819CAE06500D730CF /* DXListTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7160740719CAE06500D730CF /* DXListTableViewDataSource.m */; };
 		71B57C4919C758CB00EF6AE3 /* DXDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B57C4719C758CB00EF6AE3 /* DXDetailViewController.m */; };
 		71B57C4A19C758CB00EF6AE3 /* DXDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B57C4819C758CB00EF6AE3 /* DXDetailViewController.xib */; };
+		FC833A3F1AB0C5ED00E969B8 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FC833A3E1AB0C5ED00E969B8 /* libc++.dylib */; };
+		FC833A411AB0C5F900E969B8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FC833A401AB0C5F900E969B8 /* libz.dylib */; };
+		FC833A431AB0C60500E969B8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC833A421AB0C60500E969B8 /* QuartzCore.framework */; };
+		FC833A451AB0C61600E969B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC833A441AB0C61600E969B8 /* SystemConfiguration.framework */; };
+		FC9E1F641AB0B9A7001DE63A /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E1F631AB0B9A7001DE63A /* Dropbox.framework */; };
+		FC9E1F661AB0C4D9001DE63A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E1F651AB0C4D9001DE63A /* CFNetwork.framework */; };
+		FC9E1F681AB0C4E2001DE63A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC9E1F671AB0C4E2001DE63A /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +60,6 @@
 		711A508A19388096005642EF /* DayXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DayXTests-Info.plist"; sourceTree = "<group>"; };
 		711A508C19388096005642EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		711A508E19388096005642EF /* DayXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayXTests.m; sourceTree = "<group>"; };
-		715A720219DDD1C200895248 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		715A720519DDD27700895248 /* DBStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStack.h; sourceTree = "<group>"; };
-		715A720619DDD27700895248 /* DBStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBStack.m; sourceTree = "<group>"; };
-		715A720819DDD2B000895248 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		715A720919DDD2B000895248 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		7160740019CADDA500D730CF /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		7160740119CADDA500D730CF /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
 		7160740319CAE03C00D730CF /* DXListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXListViewController.h; sourceTree = "<group>"; };
@@ -70,6 +69,13 @@
 		71B57C4619C758CB00EF6AE3 /* DXDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDetailViewController.h; sourceTree = "<group>"; };
 		71B57C4719C758CB00EF6AE3 /* DXDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDetailViewController.m; sourceTree = "<group>"; };
 		71B57C4819C758CB00EF6AE3 /* DXDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DXDetailViewController.xib; sourceTree = "<group>"; };
+		FC833A3E1AB0C5ED00E969B8 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		FC833A401AB0C5F900E969B8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FC833A421AB0C60500E969B8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FC833A441AB0C61600E969B8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FC9E1F631AB0B9A7001DE63A /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
+		FC9E1F651AB0C4D9001DE63A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FC9E1F671AB0C4E2001DE63A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +83,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC833A451AB0C61600E969B8 /* SystemConfiguration.framework in Frameworks */,
+				FC833A431AB0C60500E969B8 /* QuartzCore.framework in Frameworks */,
+				FC833A411AB0C5F900E969B8 /* libz.dylib in Frameworks */,
+				FC833A3F1AB0C5ED00E969B8 /* libc++.dylib in Frameworks */,
+				FC9E1F681AB0C4E2001DE63A /* Security.framework in Frameworks */,
+				FC9E1F661AB0C4D9001DE63A /* CFNetwork.framework in Frameworks */,
 				711A506C19388095005642EF /* CoreGraphics.framework in Frameworks */,
 				711A506E19388095005642EF /* UIKit.framework in Frameworks */,
 				711A506A19388095005642EF /* Foundation.framework in Frameworks */,
+				FC9E1F641AB0B9A7001DE63A /* Dropbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +112,7 @@
 		711A505D19388095005642EF = {
 			isa = PBXGroup;
 			children = (
+				FC9E1F631AB0B9A7001DE63A /* Dropbox.framework */,
 				711A506F19388095005642EF /* DayX */,
 				711A508819388096005642EF /* DayXTests */,
 				711A506819388095005642EF /* Frameworks */,
@@ -118,6 +132,12 @@
 		711A506819388095005642EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC833A441AB0C61600E969B8 /* SystemConfiguration.framework */,
+				FC833A421AB0C60500E969B8 /* QuartzCore.framework */,
+				FC833A401AB0C5F900E969B8 /* libz.dylib */,
+				FC833A3E1AB0C5ED00E969B8 /* libc++.dylib */,
+				FC9E1F671AB0C4E2001DE63A /* Security.framework */,
+				FC9E1F651AB0C4D9001DE63A /* CFNetwork.framework */,
 				711A506919388095005642EF /* Foundation.framework */,
 				711A506B19388095005642EF /* CoreGraphics.framework */,
 				711A506D19388095005642EF /* UIKit.framework */,
@@ -177,11 +197,6 @@
 		715A720419DDD22300895248 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				715A720519DDD27700895248 /* DBStack.h */,
-				715A720619DDD27700895248 /* DBStack.m */,
-				715A720119DDD1C200895248 /* Model.xcdatamodeld */,
-				715A720819DDD2B000895248 /* Entry.h */,
-				715A720919DDD2B000895248 /* Entry.m */,
 				7160740019CADDA500D730CF /* EntryController.h */,
 				7160740119CADDA500D730CF /* EntryController.m */,
 			);
@@ -287,9 +302,6 @@
 			files = (
 				7160740819CAE06500D730CF /* DXListTableViewDataSource.m in Sources */,
 				711A507A19388095005642EF /* DXAppDelegate.m in Sources */,
-				715A720719DDD27700895248 /* DBStack.m in Sources */,
-				715A720A19DDD2B000895248 /* Entry.m in Sources */,
-				715A720319DDD1C200895248 /* Model.xcdatamodeld in Sources */,
 				711A507619388095005642EF /* main.m in Sources */,
 				7160740219CADDA500D730CF /* EntryController.m in Sources */,
 				7160740519CAE03C00D730CF /* DXListViewController.m in Sources */,
@@ -410,6 +422,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DayX/DayX-Prefix.pch";
 				INFOPLIST_FILE = "DayX/DayX-Info.plist";
@@ -423,6 +439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DayX/DayX-Prefix.pch";
 				INFOPLIST_FILE = "DayX/DayX-Info.plist";
@@ -502,19 +522,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		715A720119DDD1C200895248 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				715A720219DDD1C200895248 /* Model.xcdatamodel */,
-			);
-			currentVersion = 715A720219DDD1C200895248 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 711A505E19388095005642EF /* Project object */;
 }

@@ -7,16 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Entry.h"
+#import <Dropbox/Dropbox.h>
+
+static NSString *kTITLE = @"title";
+static NSString *kTEXT = @"text";
+static NSString *kDATE = @"date";
 
 @interface EntryController : NSObject
 
+
 @property (nonatomic, strong, readonly) NSArray *entries;
 
+@property (strong, nonatomic) DBDatastore *datastore;
+
 + (EntryController *)sharedInstance;
++ (void)updateSharedInstance;
 
 - (void)addEntryWithTitle:(NSString *)title text:(NSString *)text date:(NSDate *)date;
-- (void)removeEntry:(Entry *)entry;
+- (void)removeEntry:(NSString *)entryID;
 
 - (void)synchronize;
 

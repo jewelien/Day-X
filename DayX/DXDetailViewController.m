@@ -11,7 +11,8 @@
 
 @interface DXDetailViewController () <UITextFieldDelegate, UITextViewDelegate>
 
-@property (nonatomic, strong) Entry *entry;
+//@property (nonatomic, strong) Entry *entry;
+@property (nonatomic, strong) DBRecord *entry;
 
 @property (nonatomic, strong) IBOutlet UITextField *textField;
 @property (nonatomic, strong) IBOutlet UITextView *textView;
@@ -21,11 +22,16 @@
 
 @implementation DXDetailViewController
 
-- (void)updateWithEntry:(Entry *)entry {
-    self.entry = entry;
+- (void)updateWithEntryDBRecord:(DBRecord *)record {
+//    self.entry = entry;
+//    
+//    self.textField.text = entry.title;
+//    self.textView.text = entry.text;
+    self.entry = record;
     
-    self.textField.text = entry.title;
-    self.textView.text = entry.text;
+    self.textField.text = [self.entry objectForKey:kTITLE]; //one way example
+    self.textView.text = self.entry[kTEXT]; //another way example
+    
 }
 
 - (void)viewDidLoad {
@@ -34,9 +40,8 @@
     self.textField.delegate = self;
     self.textView.delegate = self;
  
-    self.textField.text = self.entry.title;
-    self.textView.text = self.entry.text;
-    
+    self.textField.text = self.entry[kTITLE];
+    self.textView.text = self.entry[kTEXT];
     UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;
 
@@ -54,11 +59,11 @@
 
 - (IBAction)save:(id)sender {
 
-    if (self.entry) {
-
-        self.entry.title = self.textField.text;
-        self.entry.text = self.textView.text;
-        self.entry.timestamp = [NSDate date];
+    if (self.entry.recordId) {
+        
+        self.entry[kTITLE] = self.textField.text; //textfield name and textView should be more specific
+        self.entry[kTEXT] = self.textView.text;
+        self.entry[kDATE] = [NSDate date];
         
         [[EntryController sharedInstance] synchronize];
         
