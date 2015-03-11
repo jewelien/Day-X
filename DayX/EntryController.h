@@ -15,9 +15,8 @@
 
 + (EntryController *)sharedInstance;
 
-- (void)addEntryWithTitle:(NSString *)title text:(NSString *)text date:(NSDate *)date;
+- (void)addEntry:(Entry *)entry;
 - (void)removeEntry:(Entry *)entry;
-
-- (void)synchronize;
+- (void)replaceEntry:(Entry *)oldEntry withEntry:(Entry *)newEntry;
 
 @end
