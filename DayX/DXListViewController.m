@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) DXListTableViewDataSource *dataSource;
 
+@property (nonatomic, strong) id listUpdateObserver;
+
 @end
 
 @implementation DXListViewController
@@ -42,6 +44,10 @@
     self.tableView.delegate = self;
     [self.dataSource registerTableView:self.tableView];
 
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    self.listUpdateObserver = [nc addObserverForName:EntryListUpdated object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

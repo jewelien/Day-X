@@ -15,4 +15,7 @@
 @dynamic text;
 @dynamic timestamp;
 
+@dynamic identifier;
+@dynamic uploaded;
+
 @end

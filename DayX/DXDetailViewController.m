@@ -61,6 +61,7 @@
         self.entry.timestamp = [NSDate date];
         
         [[EntryController sharedInstance] synchronize];
+        [[EntryController sharedInstance]updateEntry:self.entry];
         
     } else {
         [[EntryController sharedInstance] addEntryWithTitle:self.textField.text text:self.textView.text date:[NSDate date]];
